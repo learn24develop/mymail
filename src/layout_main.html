@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <i class="glyphicon glyphicon-cloud"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div class="col-md-4 well">
+                Left nav
+            </div>
+
+            <div class="col-md-8" ng-controller="InboxController">
+                <div ng-include src="'inbox.html'"/>
+            </div>
+        </div>
+    </div>
+</div>

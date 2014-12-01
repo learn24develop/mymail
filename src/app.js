@@ -32,8 +32,7 @@ app.config(function($routeProvider) {
 
   $routeProvider
     .when('/inbox', {
-      templateUrl: 'inbox.html',
-      controller: 'InboxController'
+      templateUrl: 'layout_main.html'
     })
     .otherwise({
       redirectTo: '/inbox'
