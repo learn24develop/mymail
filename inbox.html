@@ -1,0 +1,22 @@
+<div>
+    <h1>Inbox</h1>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>From</th>
+            <th>Subject</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <input type="text" ng-model="q">
+        <tr ng-repeat="message in messages | filter:q | orderBy:message.subject">
+            <td>{{message.from}}</td>
+            <td>{{message.subject}}</td>
+            <td>{{message.received_date}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
