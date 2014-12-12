@@ -1,0 +1,20 @@
+[
+  {
+    "to": "client1@@gmail.com",
+    "from": "support@gmail.com",
+    "subject": "Sent: You have a pending order #1",
+    "received_date": "12/1/2014"
+  },
+  {
+    "to": "client2@@gmail.com",
+    "from": "support@gmail.com",
+    "subject": "Sent: You have a pending order #2",
+    "received_date": "12/2/2014"
+  },
+  {
+    "to": "client3@@gmail.com",
+    "from": "support@gmail.com",
+    "subject": "Sent: You have a pending order #3",
+    "received_date": "12/3/2014"
+  }
+]
