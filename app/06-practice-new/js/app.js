@@ -22,11 +22,27 @@ app.controller('TrashController', function($scope, MailService) {
   loadMessages(MailService, $scope, 'trash');
 });
 
-app.controller('NewMailController', function($scope) {
+app.controller('NewMailController', function($scope, MailService) {
   $scope.mail = {};
+
+  $scope.isValid = function() {
+
+    var inValid = false;
+    var toAddress = $scope.to;
+
+    if(toAddress){
+      inValid = toAddress.length > 0;
+    }
+
+    return false;
+  };
 
   $scope.send = function() {
     console.log($scope.mail);
+    MailService.send($scope.mail).then(function() {
+      console.log("mail sent successfully");
+    });
+
   };
 });
 
@@ -42,6 +58,10 @@ app.factory('MailService', function MailService($http) {
     }).then(function(result) {
       return result.data;
     });
+  };
+
+  exports.send = function(mail) {
+    return $http.post('api/mail', mail);
   };
 
   return exports;
