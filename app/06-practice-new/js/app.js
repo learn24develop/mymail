@@ -54,6 +54,16 @@ app.controller('NewMailController', function($scope, MailService) {
   };
 });
 
+app.controller('EditController', function($scope) {
+
+  $scope.mileage = 12;
+  $scope.editMode = false;
+
+  $scope.update = function() {
+    $scope.editMode = !$scope.editMode;
+  }
+});
+
 // Services
 app.factory('MailService', function MailService($http) {
   var exports = {};
@@ -91,6 +101,9 @@ app.config(function($routeProvider) {
     })
     .when('/new', {
       templateUrl: 'views/new.html'
+    })
+    .when('/edit', {
+      templateUrl: 'views/edit.html'
     })
     .otherwise({
       redirectTo: '/inbox'
