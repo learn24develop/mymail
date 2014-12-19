@@ -1,5 +1,9 @@
 <div ng-controller="TrashController">
-    <h1>{{title}}</h1>
+    <h1>{{title}}
+        <small>
+            <local-weather weather="weather"></local-weather>
+        </small>
+    </h1>
 
     <ng-include src="'views/messages.html'"></ng-include>
 

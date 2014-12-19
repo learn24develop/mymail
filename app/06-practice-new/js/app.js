@@ -10,32 +10,40 @@ function loadMessages(MailService, $scope, filter) {
   });
 }
 
+function initializeWeather($scope) {
+  $scope.weather = {
+    "location": "STL",
+    "temperature": "45"
+  };
+}
+
 app.controller('InboxController', function($scope, MailService) {
+
+  initializeWeather($scope);
+
   loadMessages(MailService, $scope, 'inbox');
 });
 
 app.controller('SentController', function($scope, MailService) {
+  initializeWeather($scope);
+
   loadMessages(MailService, $scope, 'sent');
 });
 
 app.controller('TrashController', function($scope, MailService) {
+  initializeWeather($scope);
+
   loadMessages(MailService, $scope, 'trash');
 });
 
 app.controller('NewMailController', function($scope, MailService) {
   $scope.mail = {};
 
-  $scope.isValid = function() {
+  /*$scope.isInvalid = true;
 
-    var inValid = false;
-    var toAddress = $scope.to;
-
-    if(toAddress){
-      inValid = toAddress.length > 0;
-    }
-
-    return false;
-  };
+   $scope.$watch('to', function(newValue, oldValue) {
+   $scope.isInvalid = newValue && (newValue.length === 0);
+   });*/
 
   $scope.send = function() {
     console.log($scope.mail);
