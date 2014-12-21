@@ -1,0 +1,14 @@
+<div ng-controller="InboxController">
+    <ng-include src="'views/toolbar.html'"></ng-include>
+
+
+    <h1>{{title}}
+        <small>
+            <local-weather weather="weather"></local-weather>
+        </small>
+    </h1>
+
+
+    <message-list></message-list>
+
+</div>

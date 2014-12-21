@@ -1,0 +1,17 @@
+
+input.ng-invalid {
+    background: #ff7488;
+}
+
+input.ng-valid {
+    background: limegreen;
+}
+
+textarea.ng-invalid {
+    background: #ff7488;
+}
+
+textarea.ng-valid {
+    background: limegreen;
+}
+
