@@ -1,31 +1,30 @@
 describe('InboxController', function() {
+  var inboxController, $rootScope, $scope, $q, deferred, mailService;
 
-  var $controller, q, deferred;
   beforeEach(module('mymail'));
 
-  beforeEach(inject(function(_$controller_, _MailService_, $q) {
-    // The injector unwraps the underscores (_) from around the parameter names when matching
-    $controller = _$controller_;
-    MailService = _MailService_;
+  beforeEach(inject(function($injector) {
 
-    q = $q;
+    var $controller = $injector.get('$controller');
+    $rootScope = $injector.get('$rootScope');
+    $scope = $rootScope.$new();
+    $q = $injector.get('$q');
     deferred = $q.defer();
     deferred.resolve();
+
+    mailService = jasmine.createSpyObj('MailService', ['getMessages']);
+    mailService.getMessages.and.returnValue(deferred.promise);
+
+    inboxController = $controller('InboxController', {
+      $scope: $scope,
+      MailService: mailService
+    });
+
   }));
 
-  describe('$scope.grade', function() {
-    it('sets the strength to "strong" if the password length is >8 chars', function() {
-      var $scope = {};
-      var mailService = jasmine.createSpyObj('MailService', ['getMessages']);
-      mailService.getMessages = jasmine.createSpy('getMessages').and.return(deferred.promise);
-
-      var controller = $controller('InboxController', {
-        $scope: $scope,
-        MailService: mailService
-      });
-
+  describe('On Load', function() {
+    it('calls getMessages', function() {
       expect(mailService.getMessages).toHaveBeenCalled();
-
     });
   });
 });

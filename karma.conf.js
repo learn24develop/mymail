@@ -13,8 +13,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '08-unit-testing/js/math.js',
-      '08-unit-testing/specs/math.spec.js'
+      '../bower_components/angular/angular.js',
+      '../bower_components/angular-route/angular-route.js',
+      '../bower_components/angular-mocks/angular-mocks.js',
+      '08-unit-testing/js/*.js',
+      '08-unit-testing/directives/**/*.js',
+      '08-unit-testing/specs/*.js'
     ],
 
     // list of files to exclude
