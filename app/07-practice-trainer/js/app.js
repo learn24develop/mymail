@@ -67,8 +67,7 @@ app.controller('LeftNavController', function LeftNavController($scope, $rootScop
   $rootScope.$on('create-new-folder', function(event, folderName) {
     console.log("new folder event received");
     console.log(folderName);
-    $scope.myFolder = folderName;
-    $scope.myfolder = folderName;
+    $scope.myFolder = folderName
   });
 });
 
