@@ -13,7 +13,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '08-unit-testing/specs/*.js'
+      '08-unit-testing/js/math.js',
+      '08-unit-testing/specs/math.spec.js'
     ],
 
     // list of files to exclude

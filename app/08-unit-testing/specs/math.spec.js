@@ -1,12 +1,14 @@
 describe('Math', function() {
+  var Math = window.Math;
 
   it('Adding 1 + 5 should return 6', function() {
-    expect(1 + 5).toBe(6);
+    var sum = Math.add(1, 5);
+    expect(sum).toBe(6);
   });
 
   it('Adding 1 + 2 should return 3', function() {
-    console.log("test");
-    expect(1 + 2).toBe(3);
+    var sum = Math.add(1, 2);
+    expect(sum).toBe(3);
   });
 
 });

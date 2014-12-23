@@ -1,4 +1,4 @@
-xdescribe('InboxController', function() {
+describe('InboxController', function() {
 
   var $controller, q, deferred;
   beforeEach(module('mymail'));
