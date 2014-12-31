@@ -1,1 +1,20 @@
-<h1>test</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>From</th>
+        <th>Subject</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <div class="page-header">
+        <input type="search" class="input-lg" placeholder="Search" ng-model="q">s
+    </div>
+    <tr ng-repeat="message in messages | filter:q | orderBy:message.subject">
+        <td>{{message.from}}</td>
+        <td>{{message.subject}}</td>
+        <td>{{message.received_date}}</td>
+    </tr>
+    </tbody>
+</table>

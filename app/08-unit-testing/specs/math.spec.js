@@ -1,14 +1,12 @@
 describe('Math', function() {
-  var Math = window.Math;
+  var mathUtil;
 
-  it('Adding 1 + 5 should return 6', function() {
-    var sum = Math.add(1, 5);
-    expect(sum).toBe(6);
+  beforeEach(function() {
+    mathUtil = window.mathUtil;
   });
 
-  it('Adding 1 + 2 should return 3', function() {
-    var sum = Math.add(1, 2);
-    expect(sum).toBe(3);
+  it('adding 1 + 2 gives 3', function() {
+    expect(mathUtil.add(1, 2)).toBe(3);
   });
 
 });

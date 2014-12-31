@@ -25,20 +25,4 @@ describe('MailService', function() {
       $httpBackend.flush();
     });
   });
-
-  describe('save', function() {
-
-    it('calls save http request', function() {
-
-      $httpBackend.whenPOST('api/save-mileage').respond(200, 'success');
-      $httpBackend.whenGET('views/inbox.html').respond(200, '');
-
-
-      mailService.save('inbox').then(function(response) {
-        expect(response.data).toEqual('success');
-      });
-
-      $httpBackend.flush();
-    });
-  });
 });

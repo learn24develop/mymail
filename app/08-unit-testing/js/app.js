@@ -36,6 +36,23 @@ app.controller('NewMailController', function($scope, MailService) {
   };
 });
 
+app.controller('EditController', function($scope, MailService) {
+
+  $scope.mileage = 12;
+  $scope.editMode = false;
+
+  $scope.update = function() {
+    $scope.editMode = !$scope.editMode;
+  };
+
+  $scope.save = function() {
+    var data = {
+      mileage:$scope.mileage
+    };
+    MailService.save(data);
+  };
+});
+
 // Services
 app.factory('MailService', function MailService($http) {
   var exports = {};
@@ -52,6 +69,10 @@ app.factory('MailService', function MailService($http) {
 
   exports.send = function(data) {
     $http.post('api/mail', data);
+  };
+
+  exports.save = function(data) {
+    return $http.post('api/save-mileage', data);
   };
 
   return exports;
@@ -73,6 +94,9 @@ app.config(function($routeProvider) {
     })
     .when('/new', {
       templateUrl: 'views/new.html'
+    })
+    .when('/edit', {
+      templateUrl: 'views/edit.html'
     })
     .otherwise({
       redirectTo: '/inbox'
